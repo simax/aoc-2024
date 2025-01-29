@@ -2,11 +2,11 @@ use utils::get_input;
 
 fn main() {
     let content = get_input();
-    let readings_count: i32 = get_readings(&content);
+    let readings_count: i32 = part_1(&content);
     println!("Safe readings: {}", readings_count);
 }
 
-fn get_readings(content: &Vec<String>) -> i32 {
+fn part_1(content: &Vec<String>) -> i32 {
 
     let mut readings_count: i32 = 0;
     for line in content.iter() {
