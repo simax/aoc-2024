@@ -23,14 +23,15 @@ fn part_2(content: &str){
             // Remove from "don't()" to "do()"
             cleaned_text.replace_range(dont_start..do_end, "");
             // Move search start point to avoid infinite loop
-            start_search = dont_start;
+            start_search = 0;
         } else {
-            // No "do()" found after this "don't()", so stop searching
+            // No "do()" found after this "don't()", so stop searching but remove
+            // everything sine the last don't()
+            cleaned_text.replace_range(dont_start..cleaned_text.len(), "");
             break;
         }
     }
 
-    println!("{}", cleaned_text);
     part_1(cleaned_text.as_str());
 
 }
